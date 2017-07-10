@@ -52,10 +52,7 @@
                 </li>
                 <li><a href="#">Model Test</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="register.html"><i class="fa fa-user" aria-hidden="true"></i> Register</a></li>
-                <li><a href="login.html"><i class="fa fa-lock" aria-hidden="true"></i> Login</a></li>
-            </ul>
+
         </div>
     </div>
 

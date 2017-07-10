@@ -13,9 +13,7 @@ $obj = new Student();
 
 $allData = $obj->trashed();
 
-if(!isset($_SESSION)){
-    session_start();
-}
+
 $msg = Message::getMessage();
 
 
@@ -66,9 +64,10 @@ $serial = (($page-1) * $itemsPerPage) +1;
 <head>
     <meta charset="UTF-8">
     <title>Student - Trashed List</title>
-    <link rel="stylesheet" href="../../../../resource/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../resource/css/bootstrap-theme.min.css">
-    <script src="../../../../resource/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../../../resource/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../resource/assets/bootstrap/css/bootstrap-theme.min.css">
+    <script src="../../../../resource/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../../resource/assets/bootstrap/js/jquery-3.1.1.min.js"></script>
 
 
     <style>
@@ -88,8 +87,6 @@ $serial = (($page-1) * $itemsPerPage) +1;
 
 
 
-
-    <script src="../../../resource/js/jquery-3.1.1.min.js"></script>
 
 
 
@@ -115,7 +112,7 @@ $serial = (($page-1) * $itemsPerPage) +1;
         </div>
 
 
-    <h1 style="text-align: center" >Birthday - Trashed List(<?php echo count($allData) ?></h1>
+    <h1 style="text-align: center" >Student - Trashed List(<?php echo count($allData) ?>)</h1>
 
     <table class="table table-striped table-bordered" cellspacing="0px">
 
@@ -125,9 +122,12 @@ $serial = (($page-1) * $itemsPerPage) +1;
 
             <th style='width: 10%; text-align: center'>Serial Number</th>
             <th style='width: 10%; text-align: center'>ID</th>
-            <th>User Name</th>
-            <th>Date Of Birth</th>
-            <th>Action Buttons</th>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Course</th>
+
         </tr>
 
         <?php
@@ -152,9 +152,9 @@ $serial = (($page-1) * $itemsPerPage) +1;
 
                     <td>
                        <a href='view.php?id=$oneData->id' class='btn btn-info'>View</a>
-                       <a href='edit.php?id=$oneData->id' class='btn btn-primary'>Edit</a>
+                       
                        <a href='recover.php?id=$oneData->id' class='btn btn-success'>Recover</a>
-                       <a href='delete.php?id=$oneData->id' class='btn btn-danger'>Delete</a>
+                       <a href='delete.php?email=$oneData->email' class='btn btn-danger'>Delete</a>
 
                      </td>
                       </tr>
@@ -216,8 +216,6 @@ $serial = (($page-1) * $itemsPerPage) +1;
     </div>
     <!--  ######################## pagination code block#2 of 2 end ###################################### -->
 
-
-
 </div>
 
 
@@ -260,11 +258,6 @@ $serial = (($page-1) * $itemsPerPage) +1;
     });
 
 </script>
-
-
-
-
-
 
 </body>
 </html>

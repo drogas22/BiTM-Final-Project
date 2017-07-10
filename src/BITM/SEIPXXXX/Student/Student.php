@@ -58,6 +58,9 @@ class Student extends DB{
             $this->email_token=$data['email_token'];
         }
 
+        if(array_key_exists('soft_deleted',$data)){
+            $this->soft_deleted=$data['soft_deleted'];
+        }
 
         return $this;
     }
@@ -67,7 +70,6 @@ class Student extends DB{
 
 
     public function store() {
-
 
        $dataArray= array(':student_name'=>$this->student_name,':email'=>$this->email,':password'=>$this->password,
             ':phone'=>$this->phone,':gender'=>$this->gender,':course'=>$this->course,':email_token'=>$this->email_token);
@@ -93,6 +95,7 @@ VALUES (:student_name, :email, :password,:phone, :gender, :course, :email_token)
                 </div>");
             return Utility::redirect($_SERVER['HTTP_REFERER']);
         }
+
     }
 
     public function change_password(){
@@ -151,6 +154,7 @@ VALUES (:student_name, :email, :password,:phone, :gender, :course, :email_token)
 
     public function trash()
     {
+
         $dataArray = array("Yes");
 
         $sql = "UPDATE  student SET soft_deleted=? where id=" . $this->id;
@@ -170,13 +174,40 @@ VALUES (:student_name, :email, :password,:phone, :gender, :course, :email_token)
 
     }
 
+    public function trashedPaginator($page=1,$itemsPerPage=3){
+
+        try{
+
+            $start = (($page-1) * $itemsPerPage);
+
+            if($start<0) $start = 0;
+
+            $sql = "SELECT * from student  WHERE soft_deleted = 'Yes' LIMIT $start,$itemsPerPage";
+
+
+
+        }catch (PDOException $error){
+
+            $sql = "SELECT * from student  WHERE soft_deleted = 'Yes'";
+
+        }
+
+        $STH = $this->conn->query($sql);
+
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+
+        $arrSomeData  = $STH->fetchAll();
+        return $arrSomeData;
+
+    }
+
     public function updateInfo()
     {
         $dataArray = array($this->user_name, $this->date_of_birth);
 
         $sql = "UPDATE  birthday SET user_name=?, date_of_birth=? where id=" . $this->id;
 
-        $STH = $this->DBH->prepare($sql);
+        $STH = $this->conn->prepare($sql);
 
         $result = $STH->execute($dataArray);
 

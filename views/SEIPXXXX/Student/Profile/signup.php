@@ -177,8 +177,12 @@ use App\BITM\SEIPXXXX\Message\Message;
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="sr-only" for="course">Course</label>
-                                    <input type="text" name="course" placeholder="course..." class="form-address form-control" id="form-address">
+                                    <select name="course" required class="form-control">
+                                        <option value="" disabled selected>Please Select a Course...</option>
+                                        <option name="course" value="Web Design">Web Design</option>
+                                        <option name="course" value="PHP">PHP</option>
+                                        <option name="course" value="Dotnet">Dotnet</option>
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn">Register</button>
                             </form>

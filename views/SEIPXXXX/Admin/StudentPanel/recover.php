@@ -11,4 +11,4 @@ use App\BITM\SEIPXXXX\Utility\Utility;
 
 $obj=new Student();
 $obj->setData($_GET);
-$obj->trash();
+$obj->recover();

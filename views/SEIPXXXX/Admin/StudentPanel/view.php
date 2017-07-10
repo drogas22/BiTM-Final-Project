@@ -53,5 +53,6 @@ echo "</center>";
 <nav>
     <ul>
         <li> <a href= "../Authentication/logout.php" > LOGOUT </a></li>
+        <li> <a href= "index.php" > Back To Index </a></li>
     </ul>
 </nav>
