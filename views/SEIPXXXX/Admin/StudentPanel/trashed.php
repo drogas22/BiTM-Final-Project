@@ -105,7 +105,7 @@ $serial = (($page-1) * $itemsPerPage) +1;
 
         <div class="navbar"?>
             <a href="index.php?Page=1"   class="btn btn-info role="button"> View Active List</a> &nbsp;&nbsp;&nbsp;
-            <a href="create.php " class="btn btn-primary role=" button"> Add new Birthday</a>&nbsp;&nbsp;&nbsp;
+
             <button type="button" class="btn btn-danger" id="delete">Delete  Selected</button>&nbsp;&nbsp;&nbsp;
             <button type="submit" class="btn btn-success">Recover Selected</button>
 

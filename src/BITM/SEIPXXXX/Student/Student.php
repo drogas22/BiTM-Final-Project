@@ -54,6 +54,29 @@ class Student extends DB{
             $this->course=$data['course'];
         }
 
+        if(isset($data['submit'])) {
+            $imgFile = $_FILES['image']['name'];
+            $tmp_dir = $_FILES['image']['tmp_name'];
+            $imgSize = $_FILES['image']['size'];
+
+            $upload_dir = "uploads/".$imgFile; // upload directory
+
+            $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION)); // get image extension
+
+            // valid image extensions
+            $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+
+            // allow valid image file formats
+            if (in_array($imgExt, $valid_extensions)) {
+                // Check file size '5MB'
+                if ($imgSize < 5000000) {
+                    move_uploaded_file($tmp_dir, $upload_dir);
+
+                    $this->image = $imgFile;
+                }
+            }
+        }
+
         if(array_key_exists('email_token',$data)){
             $this->email_token=$data['email_token'];
         }
@@ -75,8 +98,8 @@ class Student extends DB{
             ':phone'=>$this->phone,':gender'=>$this->gender,':course'=>$this->course,':email_token'=>$this->email_token);
 
 
-        $query="INSERT INTO `coaching`.`student` (`student_name` , `email`, `password`, `phone`, `gender`, `course`,`email_verified`) 
-VALUES (:student_name, :email, :password,:phone, :gender, :course, :email_token)";
+        $query="INSERT INTO `coaching`.`student` (`student_name` , `email`, `password`, `phone`, `gender`, `course`, `image`,`email_verified`) 
+VALUES (:student_name, :email, :password,:phone, :gender, :course, :image, :email_token)";
 
         $STH=$this->conn->prepare($query);
 

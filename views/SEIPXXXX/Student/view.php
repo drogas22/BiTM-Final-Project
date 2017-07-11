@@ -19,6 +19,7 @@ echo "</center>";
 <!doctype html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -34,7 +35,6 @@ echo "</center>";
     <script type="text/javascript" src="../../../resource/assets/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../../../resource/assets/js/bootstrap.js"></script>
     <script src="../../../resource/assets/js/owl.carousel.min.js"></script>
-
 
 </head>
 <body>

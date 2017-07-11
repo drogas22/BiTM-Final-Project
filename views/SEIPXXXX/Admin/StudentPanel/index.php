@@ -126,6 +126,12 @@ if(isset($_REQUEST['search']) ) {
 
     <?php echo "<div style='height: 30px; text-align: center'> <div class='alert-success ' id='message'> $msg </div> </div>"; ?>
 
+    <div class="navbar"?>
+        <a href="trashed.php?Page=1"   class="btn btn-info role="button"> View Trash List</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" id="delete">Delete  Selected</button>&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-success">Recover Selected</button>
+
+    </div>
 
     <h2>Dotnet</h2>
     <!-- required for search, block 4 of 5 start -->
@@ -184,6 +190,7 @@ if(isset($_REQUEST['search']) ) {
                      <td>$oneData->phone</td>
                      <td>$oneData->gender</td>
                      <td>$oneData->course</td>
+                     <td><a href='$oneData->image'></a></td>
                      
 
                     <td>
@@ -193,7 +200,7 @@ if(isset($_REQUEST['search']) ) {
                        
                        <a href='delete.php?email=$oneData->email' class='btn btn-danger'>Delete</a>
                        
-                       <a href='trash.php?id=$oneData->id' class='btn btn-success'>Trash</a>
+                       <a href='trash.php?id=$oneData->id' class='btn btn-warning'>Trash</a>
                        
                        <a href='email.php?email=$oneData->email' class='btn btn-success'>Email</a>
                        <br>
@@ -211,7 +218,7 @@ if(isset($_REQUEST['search']) ) {
 
     </form>
 
-    <a href="trashed.php" class="btn btn-block">Trashed</a>
+
     <!--  ######################## pagination code block#2 of 2 start ###################################### -->
     <div align="left" class="container">
         <ul class="pagination">
@@ -452,7 +459,7 @@ if(isset($_REQUEST['search']) ) {
                        
                        <a href='delete.php?email=$oneData->email' class='btn btn-danger'>Delete</a>
                        
-                       <a href='trash.php?id=$oneData->id' class='btn btn-success'>Trash</a>
+                       <a href='trash.php?id=$oneData->id' class='btn btn-warning'>Trash</a>
                        
                        <a href='email.php?email=$oneData->email' class='btn btn-success'>Email</a>
                        <br>
@@ -470,7 +477,7 @@ if(isset($_REQUEST['search']) ) {
 
     </form>
 
-    <a href="trashed.php" class="btn btn-block">Trashed</a>
+
     <!--  ######################## pagination code block#2 of 2 start ###################################### -->
     <div align="left" class="container">
         <ul class="pagination">
@@ -719,7 +726,7 @@ if(isset($_REQUEST['search']) ) {
                        
                        <a href='delete.php?email=$oneData->email' class='btn btn-danger'>Delete</a>
                        
-                       <a href='trash.php?id=$oneData->id' class='btn btn-success'>Trash</a>
+                       <a href='trash.php?id=$oneData->id' class='btn btn-warning'>Trash</a>
                        
                        <a href='email.php?email=$oneData->email' class='btn btn-success'>Email</a>
                        <br>
@@ -737,7 +744,7 @@ if(isset($_REQUEST['search']) ) {
 
     </form>
 
-    <a href="trashed.php" class="btn btn-block">Trashed</a>
+
     <!--  ######################## pagination code block#2 of 2 start ###################################### -->
     <div align="left" class="container">
         <ul class="pagination">

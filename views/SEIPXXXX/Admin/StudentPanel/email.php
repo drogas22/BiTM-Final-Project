@@ -42,7 +42,7 @@ else {
 <!DOCTYPE html>
 
 <head>
-    <title>Email This To A Friend</title>
+    <title>Email This To A Student</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../../../resource/assets/css/bootstrap.min.css">
@@ -72,7 +72,7 @@ else {
 
 <div class="container">
     <h2>Email This To A Student</h2>
-    <form  role="form" method="post" action="email.php<?php if(isset($_REQUEST['id'])) echo "?id=".$_REQUEST['id']; else echo "?list=1";?>">
+    <form  role="form" method="post" action="email.php<?php if(isset($_REQUEST['id'])) echo "?id=".$_REQUEST['id'];?>">
         <div class="form-group">
             <label for="Name">Name:</label>
             <input type="text"  name="name"  class="form-control" id="name" value="<?php echo $singleUser->student_name ?>">
@@ -80,7 +80,8 @@ else {
             <input type="text"  name="email"  class="form-control" id="email" value="<?php echo $singleUser->email ?>" >
 
             <label for="Subject">Subject:</label>
-<!--            <input type="text"  name="subject"  class="form-control" id="subject" value="--><?php //if($list){echo "List of Cities recommendation";} else {echo "A single City recommendation";} ?><!--">-->
+            <input type="text"  name="subject"  class="form-control" id="subject" value="" >
+
             <label for="body">Body:</label>
             <textarea   rows="8" cols="160"  name="body" >
 <?php
@@ -151,9 +152,9 @@ if(isset($_REQUEST['email'])&&isset($_REQUEST['subject'])) {
     //Password to use for SMTP authentication
     $mail->Password = $yourGmailPassword;
     //Set who the message is to be sent from
-    $mail->setFrom($yourGmailAddress, 'BITM PHP');
+    $mail->setFrom($yourGmailAddress, 'Leader Of TeamCoder');
     //Set an alternative reply-to address
-    $mail->addReplyTo($yourGmailAddress, 'BITM PHP');
+    $mail->addReplyTo($yourGmailAddress, 'Leader Of TeamCoder');
     //Set who the message is to be sent to
 
     //echo $_REQUEST['email']; die();

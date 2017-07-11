@@ -15,7 +15,7 @@ use App\BITM\SEIPXXXX\Message\Message;
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signing up as customer!</title>
+    <title>Signing up as student!</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -147,7 +147,7 @@ use App\BITM\SEIPXXXX\Message\Message;
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form role="form" action="registration.php" method="post" class="registration-form">
+                            <form role="form" action="registration.php" method="post" enctype="multipart/form-data" class="registration-form">
                                 <div class="form-group">
                                     <label class="sr-only" for="form-first_name">Student name</label>
                                     <input type="text" name="student_name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
@@ -184,6 +184,19 @@ use App\BITM\SEIPXXXX\Message\Message;
                                         <option name="course" value="Dotnet">Dotnet</option>
                                     </select>
                                 </div>
+
+                                <div class="row" >
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-8 control-label">UPLOAD YOUR IMAGE</label>
+                                            <div class="col-sm-4">
+                                                <input type="file" id="exampleInputFile" name="image" title="Select only image file" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 <button type="submit" class="btn">Register</button>
                             </form>
                         </div>
